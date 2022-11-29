@@ -64,6 +64,6 @@ def safe_redirect_stdout(existing_files, new_filename, mode = "w+t"):
     # The new filename matched none of the existing files, so we will
     # just redirect stdout to the new name immediately.
 
-    with open(new_filename, mode = mode) as outfile:
+    with open(new_filename, encoding="utf-8", mode = mode) as outfile:
         with redirect_stdout(outfile):
             yield

@@ -41,11 +41,11 @@ def cli_diff2(file1, file2,
     output_args = {'show_reordered_lines': show_reordered_lines,
                    'preamble_extra_text': None}
 
-    with open(file1, "rt") as file_LCA:
+    with open(file1, "rt", encoding="utf-8") as file_LCA:
         # For 2-way diff, we just present the same file for
         # both A and B.
-        with open(file2, "rt") as file_A:
-            with open(file2, "rt") as file_B:
+        with open(file2, "rt", encoding="utf-8") as file_A:
+            with open(file2, "rt", encoding="utf-8") as file_B:
                 try:
                     rc = merge3(file_LCA, file_A, file_B, key,
                                 debug = debug,
@@ -127,11 +127,11 @@ def cli_diff2_git(file_common_name,
     output_args = {'show_reordered_lines': show_reordered_lines,
                    'preamble_extra_text': extra_text}
 
-    with open(old_file, "rt") as file_LCA:
+    with open(old_file, "rt", encoding="utf-8") as file_LCA:
         # For 2-way diff, we just present the same file for
         # both A and B.
-        with open(new_file, "rt") as file_A:
-            with open(new_file, "rt") as file_B:
+        with open(new_file, "rt", encoding="utf-8") as file_A:
+            with open(new_file, "rt", encoding="utf-8") as file_B:
                 try:
                     rc = merge3(file_LCA, file_A, file_B, key,
                                 debug = debug,
