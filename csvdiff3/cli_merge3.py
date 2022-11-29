@@ -59,7 +59,7 @@ def cli_merge3(filename_lca, filename_a, filename_b,
 
     if output_file:
 
-        with tempfile.NamedTemporaryFile("wt") as temp_output:
+        with tempfile.NamedTemporaryFile("wt", delete=False) as temp_output:
             try:
                 rc = merge3(filename_lca, filename_a, filename_b, key,
                             output = temp_output,
