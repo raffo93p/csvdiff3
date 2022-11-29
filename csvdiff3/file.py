@@ -248,7 +248,7 @@ class CSVFile:
 
     @staticmethod
     def open(filename, key, **args):
-        with open(filename, "rt") as file:
+        with open(filename, "rt", encoding="utf-8") as file:
             return CSVFile(file, key, filename, **args)
 
     def dump(self, id, prefix):
@@ -258,7 +258,7 @@ class CSVFile:
         stream = self.reader.reader.file.stream
         logging.debug(f"Dumping file {id} to {filename}")
         stream.seek(0)
-        with open(filename, "wt") as outfile:
+        with open(filename, "wt", encoding="utf-8") as outfile:
             shutil.copyfileobj(stream, outfile)
 
 class Cursor:
